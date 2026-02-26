@@ -42,9 +42,13 @@ const colors = ['#e63946', '#457b9d', '#f4a261', '#2a9d8f', '#ffbe0b', '#8338ec'
 const numberOfShapes = randomInt(3, 6);
 const shapes = [];
 
+const sizeScale = Math.min(window.innerWidth, window.innerHeight) / 800;
+const minSize = Math.max(60, 200 * sizeScale);
+const maxSize = Math.max(120, 350 * sizeScale);
+
 for (let i = 0; i < numberOfShapes; i++) {
-  const width = randomBetween(200, 350);
-  const height = randomBetween(200, 350);
+  const width = randomBetween(minSize, maxSize);
+  const height = randomBetween(minSize, maxSize);
   const x = randomBetween(200, window.innerWidth - 200);
   const y = randomBetween(150, window.innerHeight - 200);
   const rect = Bodies.rectangle(x, y, width, height, {
